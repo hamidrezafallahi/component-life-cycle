@@ -1,23 +1,29 @@
 import React from 'react';
+import Comp1 from './component/comp1';
+import'./style/main.scss'
 
-// import Fun1 from './component/comp1';
-// import Comp2 from './component/comp2';
-//import Comp3 from './component/comp3';
-//import Comp4 from './component/comp4';
-//import StyledComp1 from './component/styledcomp1';
-import StyledComp2 from './component/styledcomp2';
 
-function App() {
-  return (
-    <>
-      {/* <Fun1/> */}
-      {/* <Comp2/> */}
-      {/* <Comp3/> */}
-      {/* <Comp4/> */}
-      {/* <StyledComp1/> */}
-      <StyledComp2/>
-    </>
-  );
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+        flag: true,
+    }
+}
+
+changeflaghandler=()=>{
+  this.setState({flag:!this.state.flag})
+}
+  render() {
+    return (<>{this.state.flag && <Comp1 />}
+    <hr/>
+    <button onClick={this.changeflaghandler}>change flag handler</button> </>);
+
+      
+
+    
+  }
 }
 
 export default App;
+
